@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ scrollY: boolean }>`
     position: sticky;
-    top: 0;
+    top: ${({scrollY}) => scrollY ? '-200' : '0'}px;
+    transition: top .3s ease-in-out;
     background-color: white;
     .logo {
         @media only screen and (max-width: 800px) {
