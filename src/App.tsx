@@ -1,25 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/header';
+import { Container } from './styles';
+import { Post } from './components/post';
+
+import PostOne from './assets/post1.png'
+import PostTwo from './assets/post2.png'
+import PostThree from './assets/post3.png'
+
+const mockDescrPosts = "Structured gripped tape invisible moulded cups for sauppor firm hold strong powermesh front liner sport detail. Warmth comfort hangs loosely from the body large pocket at the front full button…"
+
+const postList = [
+  {
+    description: mockDescrPosts,
+    img: PostOne,
+    tag: "Lifestyle",
+    title: 'Eat Right For Your Exercise Regime'
+  },
+  {
+    description: mockDescrPosts,
+    img: PostTwo,
+    tag: "Lifestyle",
+    title: 'The Look: Perfect Balance'
+  },
+  {
+    description: mockDescrPosts,
+    img: PostThree,
+    tag: "Style",
+    title: 'Fun Things to Do in Rome'
+  }
+]
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <div className='posts-list'>
+        {[...postList,...postList, ...postList].map((post, index) =>
+          <Post
+            {...post}
+            key={post.title+index}
+          />
+        )}
+      </div>
+    </Container>
   );
 }
 
