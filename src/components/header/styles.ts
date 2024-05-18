@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ scrollY: boolean }>`
+export const Container = styled.div<{ scroll: boolean }>`
     position: sticky;
-    top: ${({scrollY}) => scrollY ? '-200' : '0'}px;
+    top: ${({scroll}) => scroll ? '-200' : '0'}px;
     transition: top .3s ease-in-out;
     background-color: white;
     .logo {
@@ -24,6 +24,10 @@ export const Container = styled.div<{ scrollY: boolean }>`
         height: 30px;
         border-bottom: 1px solid #E9E9E9;
         padding: 10px 0px;
+        .search-bar {
+            width: 100px;
+            outline: 0;
+        }
     }
     .search {
         cursor: pointer;

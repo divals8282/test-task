@@ -1,8 +1,10 @@
 interface PropsI {
     img: string | JSX.Element;
-    tag: string;
+    tags: string;
     title: string;
-    description: string;
+    text: string;
+    showContent: boolean;
+    onClick: () => void
 }
 
 export type ComponentT = (props: PropsI) => JSX.Element

@@ -5,9 +5,12 @@ import { Container } from './styles';
 import { FaChevronDown } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useEffect, useState } from 'react';
-export const Header = () => {
+import { ComponentT } from './types';
+
+export const Header: ComponentT = ({ onSearch }) => {
     const [{ y }] = useWindowScroll();
     const [scrollY, setScrollY] = useState(false);
+    const [activateSearch, setActivateSearch] = useState(false);
     useEffect(() => {
         if (y && y > 200) {
             setScrollY(true)
@@ -17,12 +20,12 @@ export const Header = () => {
     }, [y])
 
     return (
-        <Container scrollY={scrollY}>
+        <Container scroll={scrollY}>
             <div className='logo'>
                 <div className='desktop-space'></div>
                 <div className='mobile-menu-button'><GiHamburgerMenu /></div>
                 <img src={Logo} alt="" />
-                <img className='search' src={SearchIcon} alt="" />
+                {activateSearch ? <input onChange={(e) => onSearch(e.target.value)} className='search-bar' /> : <img onClick={() => setActivateSearch(true)} className='search' src={SearchIcon} alt="" />}
             </div>
             <ul className='navigation'>
                 <li>Demos <FaChevronDown /></li>

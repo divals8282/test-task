@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ showContent: boolean }>`
     font-family: 'Roboto';
-    max-width: 360px;
+    max-width: ${({showContent}) => showContent ? '100%' : '360px'};
+    cursor: pointer;
     @media only screen and (max-width: 800px) {
         width: 100%;
-        max-width: 100%;
     }
     img {
-        max-width: 360px;
+        max-width: ${({showContent}) => showContent ? '100%' : '360px'};
+        width: ${({showContent}) => showContent ? '500px' : '360px'};
+        ${({showContent}) => showContent ? '100%' : '360px'}
         @media only screen and (max-width: 800px) {
             width: 100%;
             max-width: 100%;
@@ -29,6 +31,17 @@ export const Container = styled.div`
         color: #929292;
         font-size: 14px;
         margin-top: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        ${({ showContent }) => {
+            if (!showContent) {
+                return `
+                    height: 28px;
+                    white-space: nowrap;
+                `
+            }
+            return ``
+        }}
     }
     .mock {
         font-size: 14px;
