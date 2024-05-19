@@ -17,5 +17,9 @@ export const Container = styled.div`
         @media only screen and (max-width: 800px) {
             grid-template-columns: 1fr;
         }
+        > * {
+            flex: 1;
+            width: 100%;
+        }
     }
 `

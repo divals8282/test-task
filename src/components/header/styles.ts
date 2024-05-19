@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ scroll: boolean }>`
+export const Container = styled.div<{ scroll: boolean, activeSearch: boolean }>`
     position: sticky;
     top: ${({scroll}) => scroll ? '-200' : '0'}px;
     transition: top .3s ease-in-out;
     background-color: white;
     .logo {
+        .logo-image {
+            margin-left: ${({activeSearch}) => activeSearch ? "90px" : '0px'};
+        }
         @media only screen and (max-width: 800px) {
             .desktop-space {
                 display: none;

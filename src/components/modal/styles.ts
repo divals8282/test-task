@@ -13,10 +13,11 @@ export const Container = styled.div<{ open: boolean }>`
     padding: 10px;
     border: 1px solid #737373;  
     .modal {
+        cursor: initial !important;
         padding: 10px;
         position: absolute;
         @media only screen and (max-width: 660px) {
-            left: 0%;  
+            left: 10px;  
         }
         left: 10%;
         width: 80%;
@@ -27,7 +28,9 @@ export const Container = styled.div<{ open: boolean }>`
             display: flex;
             justify-content: flex-end;
             button {
-                
+                cursor: pointer;
+                background: none;
+                border: none;
             }
         }
     }

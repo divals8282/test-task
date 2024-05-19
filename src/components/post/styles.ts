@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div<{ showContent: boolean }>`
     font-family: 'Roboto';
     max-width: ${({showContent}) => showContent ? '100%' : '360px'};
-    cursor: pointer;
     @media only screen and (max-width: 800px) {
         width: 100%;
     }
@@ -37,7 +36,6 @@ export const Container = styled.div<{ showContent: boolean }>`
             if (!showContent) {
                 return `
                     height: 28px;
-                    white-space: nowrap;
                 `
             }
             return ``
